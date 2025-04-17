@@ -1,0 +1,144 @@
+*{
+    margin :0;
+    padding: 0;
+}@font-face {
+    font-family: '古风大气';
+    src: url('../长城/古风大气.ttf');
+  }
+.content {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: aqua; */
+    background: url(../img/时间02.png) no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middle{
+    position: relative;
+    width: 800px;
+    height: 360px;
+    background-color: rgba(50, 82, 71, 0.728);
+    border-radius: 30px;
+    padding: 30px;
+}
+.left{
+    display: inline-block;
+    width: 500px;
+    height: 100%;
+    /* 保持原有比例，内容被缩放 */
+    object-fit: contain;
+    background: url(../img/时间02.png) no-repeat;
+    background-size: cover;
+    border-radius: 20px 20px 20px 20px;
+}
+.refister-box{
+    width: 330px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.refister-box h1{
+    font-size: 36px;
+    margin: 27px 6px;
+    color: #dfafaf;
+    font-family: 古风大气;
+
+}
+input{
+    margin-bottom: 20px;
+    width: 150px;
+    padding: 12px 42px;
+    border-radius: 36px;
+    outline: none;
+    font-size: 18px;
+    font-size: 15px;
+    font-family: 古风大气;
+    
+}
+.mima span{
+    position: absolute;
+    top: 56%;
+    right: 67px;
+    transform: translateY(-50%);
+    z-index: 3;
+    cursor: pointer;
+}
+.querenmima span{
+    position: absolute;
+    top: 72%;
+    right: 67px;
+    transform: translateY(-50%);
+    z-index: 3;
+    cursor: pointer;
+}
+
+button{
+    position: relative;
+    margin: -4px 0;
+    outline: none;
+    height: 38px;
+    padding: 6px;
+    width: 75px;
+    background: #854785;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 古风大气;
+}
+button:hover{
+    background: rgb(62, 139, 62);
+}
+.h2{
+    margin: -27px 10px 6px 176px;
+    left: 170px;
+    font-size: large;
+    font-family: 古风大气;
+    color: rgb(180, 218, 252);
+}
+.h2:hover{
+    color: #0b2c08c5;
+}
+/* 响应式页面的设定 */
+@media screen and (mix-width: 600px){
+    .middle {
+        margin: 0 30px;
+    }
+
+    .left {
+        border-radius: 20px;
+    }
+    
+    .refister-box{
+        background-color: rgba(52, 0, 73, 0.5);
+    }
+}
+/* 屏幕小于或等于600像素的css */
+@media screen and (max-width: 600px) {
+    .content {
+        background: url(../img/时间02.png) no-repeat center;
+    }
+
+    .middle {
+        /* 将背景颜色设置为透明 */
+        background-color: transparent;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .refister-box {
+        position: initial;
+        margin: -40px auto;
+        background-color: transparent;
+    }
+}

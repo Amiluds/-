@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./注册.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+    <div class="content">
+        <div class="middle">
+            <div class="left"></div>
+            <div class="refister-box">
+                <h1>--注册--</h1>
+                <form action="http://127.0.0.1:3030/api/register" method="post">
+                    <table>
+                        <tr>
+                            <td>用户名:</td>
+                            <td><input type="text" name="username" id="username" placeholder="请输入用户名"></td>
+                        </tr>
+                        <tr>
+                            <td>密码:</td>
+                            <td>
+                                <div class="mima" style="position: relative;">
+                                    <input type="password" name="password" id="pwd" placeholder="请输入密码">
+                                    <span class="eye fa fa-eye-slash" id="eye"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>确认密码:</td>
+                            <td>
+                                <div class="mima" style="position: relative;">
+                                    <input type="password" name="confirm_password" id="sure" placeholder="确认密码">
+                                    <span class="eye fa fa-eye-slash" id="eyes"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit">注册</button>
+                </form>
+                <a class="h2" href="./登录.html">去登录</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const eye = document.getElementById('eye');
+        const eyes = document.getElementById('eyes');
+        const pwd = document.getElementById('pwd');
+        const sure = document.getElementById('sure');
+
+        // Toggle visibility for password
+        eye.onclick = function() {
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                eye.className = 'fa fa-eye';
+            } else {
+                pwd.type = 'password';
+                eye.className = 'fa fa-eye-slash';
+            }
+        };
+
+        // Toggle visibility for confirm password
+        eyes.onclick = function() {
+            if (sure.type === 'password') {
+                sure.type = 'text';
+                eyes.className = 'fa fa-eye';
+            } else {
+                sure.type = 'password';
+                eyes.className = 'fa fa-eye-slash';
+            }
+        };
+    </script>
+</body>
+</html>

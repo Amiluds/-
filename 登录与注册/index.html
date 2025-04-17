@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #div1 {
+            width: 400px;
+            height: 200px;
+            border-radius: 10%;
+            background-color: deepskyblue;
+            margin: 200px auto;
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 200px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #div2,
+        #div4 {
+            display: none;
+            position: absolute;
+            top: 140px;
+            left: 500px;
+            width: 500px;
+            height: 360px;
+            background-color: khaki;
+            /* margin: 140px auto; */
+            border-radius: 5%;
+            box-shadow: 10px 8px 5px rosybrown;
+        }
+
+        form {
+            padding: 70px;
+        }
+
+        form td {
+
+            width: 80px;
+            height: 60px;
+
+        }
+
+
+        td input {
+            width: 250px;
+            height: 26px;
+        }
+
+        td .ipt {
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 150px;
+            height: 40px;
+            background-color: deepskyblue;
+            border-radius: 10%;
+            font-weight: 800;
+        }
+
+        #div3,
+        #div5 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            line-height: 50px;
+            font-size: 40px;
+            font-weight: 500;
+            text-align: center;
+            background-color: palegreen;
+            border-radius: 50%;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"><span id="span1">注册</span> <span id="span2">登录</span></div>
+
+    <div id="div2">
+
+        <form action="http://127.0.0.1:3030/api/reguser" method="post">
+            <table>
+                <tr>
+                    <td>名字:</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+
+                <tr>
+                    <td>密码:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+
+                    <td><input type="submit" value="注册" class="ipt"></td>
+                </tr>
+            </table>
+        </form>
+        <div id="div3">X</div>
+    </div>
+    <div id="div4">
+        <form action="http://127.0.0.1:3030/api/login" method="get">
+            <table>
+                <tr>
+                    <td>名字:</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+
+                <tr>
+                    <td>密码:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+
+                    <td><input type="submit" value="登录" class="ipt"></td>
+                </tr>
+            </table>
+        </form>
+        <div id="div5">X</div>
+    </div>
+
+
+    <script>
+        const div1 = document.querySelector('#div1')
+        const span1 = document.querySelector('#span1');
+        const span2 = document.querySelector('#span2');
+        const div2 = document.querySelector('#div2');
+        const div3 = document.querySelector('#div3');
+        const div4 = document.querySelector('#div4');
+        const div5 = document.querySelector('#div5');
+
+        const input = document.querySelectorAll('input');
+
+        for (let i = 0; i <= input.length - 1; i++) {
+            input[i].addEventListener('mousedown', function (e) {
+                e.stopPropagation();
+            })
+        }
+
+        span1.addEventListener('click', function () {
+            div1.style.display = 'none';
+            document.body.style.backgroundColor = 'pink'
+            div2.style.display = 'block';
+            div3.addEventListener('click', function () {
+                div1.style.display = 'block';
+                div2.style.display = '';
+                document.body.style.backgroundColor = '';
+                div2.style.top = 140 + 'px';
+                div2.style.left = 500 + 'px';
+            })
+        })
+        span2.addEventListener('click', function () {
+            div1.style.display = 'none';
+            document.body.style.backgroundColor = 'pink'
+            div4.style.display = 'block';
+            div5.addEventListener('click', function () {
+                div1.style.display = 'block';
+                div4.style.display = '';
+                document.body.style.backgroundColor = '';
+                div4.style.top = 140 + 'px';
+                div4.style.left = 500 + 'px';
+            })
+        })
+
+        div2.addEventListener('mousedown', function () {
+
+            function fn(e) {
+                let x = e.pageX
+                let y = e.pageY
+                div2.style.top = y - (div2.offsetHeight / 2) + 'px';
+                div2.style.left = (x - (div2.offsetWidth / 2)) + 'px';
+                this.style.cursor = 'move';
+            }
+
+            div2.addEventListener('mousemove', fn)
+
+            div2.addEventListener('mouseup', function () {
+
+                div2.removeEventListener('mousemove', fn)
+            })
+
+        })
+
+
+        div4.addEventListener('mousedown', function () {
+
+            function fn(e) {
+
+                x = e.pageX;
+                y = e.pageY;
+
+
+                div4.style.left = (x - (div4.offsetWidth / 2)) + 'px';
+                div4.style.top = y - 50 + 'px';
+            }
+
+            div4.addEventListener('mousemove', fn);
+
+            div4.addEventListener('mouseup', function () {
+
+                div4.removeEventListener('mousemove', fn);
+
+            })
+
+        })
+
+
+
+    </script>
+
+
+</body>
+
+</html>

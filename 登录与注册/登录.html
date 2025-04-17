@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <!-- Link to the provided CSS file -->
+    <link rel="stylesheet" href="./登录.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+    <div class="content">
+        <div class="middle">
+            <div class="left"></div>
+            <div class="refister-box">
+                <h1>--登录--</h1>
+                <form action="http://127.0.0.1:3030/api/login" method="post">
+                    <table>
+                        <tr>
+                            <td>用户名:</td>
+                            <td><input type="text" name="username" placeholder="请输入用户名"></td>
+                        </tr>
+                        <tr>
+                            <td>密码:</td>
+                            <td>
+                                <div class="mima" style="position: relative;">
+                                    <input type="password" name="password" id="pwd" placeholder="请输入密码">
+                                    <span class="eye fa fa-eye-slash" id="eye"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit">登录</button>
+                </form>
+                <a class="h2" href="./注册.html">没有账号？去注册</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password visibility toggle logic
+        const eye = document.getElementById('eye');
+        const pwd = document.getElementById('pwd');
+        let flag = 0;
+
+        eye.onclick = function() {
+            if (flag === 0) {
+                pwd.type = 'text';
+                eye.className = 'fa fa-eye';
+                flag = 1;
+            } else {
+                pwd.type = 'password';
+                eye.className = 'fa fa-eye-slash';
+                flag = 0;
+            }
+        };
+    </script>
+</body>
+</html>
